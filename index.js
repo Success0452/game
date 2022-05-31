@@ -6,6 +6,15 @@ const Random = (value) => {
  return Math.floor(Math.random() * value.length);
 }
 
+  /* prompt message to welcome the user to the game */
+prompt(`welcome to the predicting game, press enter to continue`)
+
+  /* prompt to collect username of the user */
+const username = prompt ("enter your username")
+
+  /* storing username to cookie */
+Cookies.set('username', username)
+
 /* function to set range of number*/
 function numberRange (start, end) {
   return new Array(end - start).fill().map((d, i) => i + start);
@@ -21,15 +30,6 @@ const game = () => {
 
   /* variable to track each user point */
   let point = 0;
-
-  /* prompt message to welcome the user to the game */
-prompt(`welcome to the predicting game, press enter to continue`)
-
-  /* prompt to collect username of the user */
-const username = prompt ("enter your username")
-
-  /* storing username to cookie */
-Cookies.set('username', username)
 
   /* prompt message to welcome user to each stage */
 prompt(`welcome to stage ${stage} with ${point} point, press enter to continue`)
@@ -81,7 +81,7 @@ point++
 }
 
   /* message to display when user gets the prediction wrong */
-console.log("Oops!!, wrong number, try again")
+console.log(`Oops!!, wrong number, Game Over! total point earned is ${point}`)
 }
 
 
@@ -98,7 +98,7 @@ while(decide == 1){
   game()
 
   /* updating user decision */
-decide = prompt("press 1 to play again")
+decide = prompt("press 1 to play again? and any key to stop playing")
 }
 
 /* print message to user when user ends the game*/
